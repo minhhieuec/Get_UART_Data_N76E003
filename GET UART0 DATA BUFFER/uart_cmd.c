@@ -3,7 +3,7 @@
 #define TIME_OUT 0x40000000
 uint32_t time_out = 0;
 
-UINT8 Read_UART_CMD(void) {
+UINT8 uart0_read_1_byte(void) {
   UINT8 c;
 
   while (!RI) {
@@ -22,7 +22,7 @@ char get_uart_data(uint8_t *uart_buf, uint8_t num_bytes) {
   uint8_t cnt_bytes = 0;
 
   do {
-    c = Read_UART_CMD();
+    c = uart0_read_1_byte();
 
     if (time_out > TIME_OUT)
       return 0;
@@ -35,6 +35,8 @@ char get_uart_data(uint8_t *uart_buf, uint8_t num_bytes) {
     }
 
   } while (cnt_bytes < num_bytes);
+
+  RI = 0;
 
   for (i = 0; i < num_bytes; i++) {
     debug("%c", uart_buf[i]);
