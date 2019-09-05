@@ -16,7 +16,7 @@ UINT8 uart0_read_1_byte(void) {
   return (c);
 }
 
-char get_uart_data(uint8_t *uart_buf, uint8_t num_bytes) {
+char get_uart0_data(uint8_t *uart_buf, uint8_t num_bytes) {
   UINT8 c;
   UINT8 i = 0;
   uint8_t cnt_bytes = 0;

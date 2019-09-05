@@ -6,6 +6,6 @@
 #include "SFR_Macro.h"
 #include "Function_define.h"
 
-char get_uart_data(uint8_t *uart_buf, uint8_t num_bytes);
+char get_uart0_data(uint8_t *uart_buf, uint8_t num_bytes);
 
 #endif
